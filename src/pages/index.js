@@ -1,5 +1,6 @@
 import { graphql, useStaticQuery } from "gatsby";
 import * as React from "react";
+import ReactHtmlParser from "react-html-parser";
 
 // styles
 const IndexPage = () => {
@@ -38,7 +39,7 @@ const IndexPage = () => {
                         return (
                             <div>
                                 <h3>{post.author.node.name}</h3>
-								{`${post.content}`}
+                                {ReactHtmlParser(post.content)}
                             </div>
                         );
                     })}
